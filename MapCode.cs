@@ -595,12 +595,11 @@ namespace MapTileSet
 
             _stream = File.Create(mapFileName);
             writer = new BinaryWriter(_stream);
-            //write header as 10C#
-            //writer.Write("10C#"); //but not like this :)
-            writer.Write((byte)0x02);
-            writer.Write((byte)0x00);
-            writer.Write((byte)0x43);//(byte)67 (C)
-            writer.Write((byte)0x23);//(byte)35 (#)
+            short ver = 1;
+            char[] tag = { 'C', '#' };
+            writer.Write(ver);
+            writer.Write(tag);
+
             writer.Write((Int16)Width); //short
             writer.Write((Int16)Height); //short
 

@@ -659,6 +659,131 @@ namespace MapTileSet
             ShandaMir2_Objects200,
         }
 
+        public enum CrystalFileNames
+        {
+            WemadeMir2_Tiles = 0,
+            WemadeMir2_Smtiles,
+            WemadeMir2_Objects,
+            WemadeMir2_Objects2,
+            WemadeMir2_Objects3,
+            WemadeMir2_Objects4,
+            WemadeMir2_Objects5,
+            WemadeMir2_Objects6,
+            WemadeMir2_Objects7,
+            WemadeMir2_Objects8,
+            WemadeMir2_Objects9,
+            WemadeMir2_Objects10,
+            WemadeMir2_Objects11,
+            WemadeMir2_Objects12,
+            WemadeMir2_Objects13,
+            WemadeMir2_Objects14,
+            WemadeMir2_Objects15,
+            WemadeMir2_Objects16,
+            WemadeMir2_Objects17,
+            WemadeMir2_Objects18,
+            WemadeMir2_Objects19,
+            WemadeMir2_Objects20,
+            WemadeMir2_Objects21,
+            WemadeMir2_Objects22,
+            WemadeMir2_Objects23,
+            WemadeMir2_Objects24,
+            WemadeMir2_Objects25,
+            WemadeMir2_Objects26,
+
+            ShandaMir2_Tiles = 100,
+            ShandaMir2_Tiles2,
+            ShandaMir2_Tiles3,
+            ShandaMir2_Tiles4,
+            ShandaMir2_Tiles5,
+            ShandaMir2_Tiles6,
+            ShandaMir2_Tiles7,
+            ShandaMir2_Tiles8,
+            ShandaMir2_Tiles9,
+            ShandaMir2_Tiles10,
+
+            ShandaMir2_SmTiles,
+            ShandaMir2_SmTiles2,
+            ShandaMir2_SmTiles3,
+            ShandaMir2_SmTiles4,
+            ShandaMir2_SmTiles5,
+            ShandaMir2_SmTiles6,
+            ShandaMir2_SmTiles7,
+            ShandaMir2_SmTiles8,
+            ShandaMir2_SmTiles9,
+            ShandaMir2_SmTiles10,           
+
+            ShandaMir2_Objects,
+            ShandaMir2_Objects2,
+            ShandaMir2_Objects3,
+            ShandaMir2_Objects4,
+            ShandaMir2_Objects5,
+            ShandaMir2_Objects6,
+            ShandaMir2_Objects7,
+            ShandaMir2_Objects8,
+            ShandaMir2_Objects9,
+            ShandaMir2_Objects10,
+            ShandaMir2_Objects11,
+            ShandaMir2_Objects12,
+            ShandaMir2_Objects13,
+            ShandaMir2_Objects14,
+            ShandaMir2_Objects15,
+            ShandaMir2_Objects16,
+            ShandaMir2_Objects17,
+            ShandaMir2_Objects18,
+            ShandaMir2_Objects19,
+            ShandaMir2_Objects20,
+            ShandaMir2_Objects21,
+            ShandaMir2_Objects22,
+            ShandaMir2_Objects23,
+            ShandaMir2_Objects24,
+            ShandaMir2_Objects25,
+            ShandaMir2_Objects26,
+            ShandaMir2_Objects27,
+            ShandaMir2_Objects28,
+            ShandaMir2_Objects29,
+            ShandaMir2_Objects30,
+            ShandaMir2_Objects31,
+            ShandaMir2_Objects32,
+            ShandaMir2_Objects33,
+            ShandaMir2_Objects34,
+            ShandaMir2_Objects35,
+            ShandaMir2_Objects36,
+            ShandaMir2_Objects37,
+            ShandaMir2_Objects38,
+            ShandaMir2_Objects39,
+            ShandaMir2_Objects40,
+            ShandaMir2_Objects41,
+            ShandaMir2_Objects42,
+            ShandaMir2_Objects43,
+            ShandaMir2_Objects44,
+            ShandaMir2_Objects45,
+            ShandaMir2_Objects46,
+            ShandaMir2_Objects47,
+            ShandaMir2_Objects48,
+            ShandaMir2_Objects49,
+            ShandaMir2_Objects50,
+            ShandaMir2_Objects51,
+            ShandaMir2_Objects52,
+            ShandaMir2_Objects53,
+            ShandaMir2_Objects54,
+            ShandaMir2_Objects55,
+            ShandaMir2_Objects56,
+            ShandaMir2_Objects57,
+            ShandaMir2_Objects58,
+            ShandaMir2_Objects59,
+            ShandaMir2_Objects60,
+            ShandaMir2_Objects61,
+            ShandaMir2_Objects62,
+            ShandaMir2_Objects63,
+            ShandaMir2_Objects64,
+            ShandaMir2_Objects65,
+            ShandaMir2_Objects66,
+            ShandaMir2_Objects67,
+            ShandaMir2_Objects68,
+            ShandaMir2_Objects69,
+            ShandaMir2_Objects70
+        }
+
         private MapReader mapFile;
         OpenFileDialog OFD = new OpenFileDialog();
         public List<FileEntry> Entries = new List<FileEntry>();
@@ -770,15 +895,17 @@ namespace MapTileSet
                     cbox.DropDownStyle = ComboBoxStyle.DropDownList;
                     cbox.Location = new Point(303, yy);
                     cbox.Width = 150;
-                    cbox.Items.AddRange(Enum.GetValues(typeof(FileNames)).Cast<object>().ToArray());
+                    cbox.Items.AddRange(Enum.GetValues(typeof(CrystalFileNames)).Cast<object>().ToArray());
                     panel1.Controls.Add(cbox);
                     NewControls.Add(cbox);
                     cbox.SelectedItem = null;
-                    cbox.SelectedItem = (FileNames)entry.OldIndex;
+                    var oldFileName = ((FileNames)entry.OldIndex).ToString();
+                    Enum.TryParse(oldFileName, out CrystalFileNames crystalFileName);
+                    cbox.SelectedItem = crystalFileName;
 
                     cbox.SelectedIndexChanged += (oo, ee) =>
                     {
-                        entry.NewIndex = (int)((FileNames)cbox.SelectedItem);
+                        entry.NewIndex = (int)((CrystalFileNames)cbox.SelectedItem);
                     };
 
                     Label slabel = new Label();
