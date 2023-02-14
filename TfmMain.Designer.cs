@@ -32,6 +32,7 @@
             this.btnSelectMap = new System.Windows.Forms.Button();
             this.btnProcess = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbMap
@@ -71,16 +72,29 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(12, 46);
+            this.panel1.Location = new System.Drawing.Point(12, 56);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(688, 209);
+            this.panel1.Size = new System.Drawing.Size(688, 244);
             this.panel1.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(15, 34);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 13);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.Text = "Modified by Elite Mir 2";
             // 
             // TfmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 267);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(712, 312);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnProcess);
             this.Controls.Add(this.btnSelectMap);
@@ -88,6 +102,7 @@
             this.Name = "TfmMain";
             this.Text = "Map Tile Set";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -97,6 +112,7 @@
         private System.Windows.Forms.Button btnSelectMap;
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
